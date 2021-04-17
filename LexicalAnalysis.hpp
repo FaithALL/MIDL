@@ -116,6 +116,8 @@ private:
             ++curLineNo;
             pos = 0;
             if (!getline(in, str)) return std::nullopt;
+            //加入舍弃的换行符
+            str.push_back('\n');
         }
         return str[pos++];
     }

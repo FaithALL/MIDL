@@ -172,6 +172,7 @@ void LexicalAnalysis::idHelp() {
             {"UNSIGNED", TokenType::UNSIGNED}
     };
 
+    //以下划线结尾或多个下划线
     if (token.type == TokenType::ERROR) {
         token.value = "invalid id: " + token.value;
     } else {
@@ -231,7 +232,8 @@ void LexicalAnalysis::handleInStr() {
 void LexicalAnalysis::handleInInt() {
     //最后处理，判别数字是否合法
     auto intHelp = [this] {
-        if (token.value.size() > 1 && token.value[0] == '0') {
+        if (token.value.size() > 1 && token.value[0] == '0'
+            && token.value != "0l" && token.value != "0L") {
             token.type = TokenType::ERROR;
             token.value = "invalid integer: " + token.value;
         }
