@@ -21,6 +21,8 @@ test
 test_
 test_test
 test@test
+test__test
+test_%test
 
 123l
 0123

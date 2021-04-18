@@ -49,15 +49,15 @@ const unordered_map<TokenType, string> type{
         {TokenType::ERROR,     "ERROR"}
 };
 
-//输出Token序列，对于错误处红色标记(仅限Unix系操作系统，不保证跨平台性)
-void print(vector<Token> &vec) {
+//输出Token序列
+void print(ostream& fout, vector<Token> &vec) {
     const int width = 20;
-    cout << left;
-    cout << setw(width) << "line" << setw(width) << "TokenType" << setw(width) << "TokenValue" << endl;
+    fout << left;
+    fout << setw(width) << "line" << setw(width) << "TokenType" << setw(width) << "TokenValue" << endl;
     for (const auto &token: vec) {
         if (token.type == TokenType::ERROR) cout << "\033[31m";
-        cout << setw(width) << token.lineNo << setw(width) << type.at(token.type) << setw(width) << token.value << endl;
-        cout << "\033[0m";
+        fout << setw(width) << token.lineNo << setw(width) << type.at(token.type) << setw(width) << token.value << endl;
+        fout << "\033[0m";
     }
 }
 
@@ -69,6 +69,6 @@ int main() {
     }
     LexicalAnalysis lexicalAnalysis(fin);
     vector<Token> vec = lexicalAnalysis.scan();
-    print(vec);
+    print(cout, vec);
     return 0;
 }
