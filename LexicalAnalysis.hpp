@@ -1,5 +1,5 @@
 /**
- * MIDL的语法分析程序
+ * MIDL的词法分析程序
  * using c++17
  * compile with g++ 9.3.0
  */
@@ -56,7 +56,9 @@ enum class TokenType {
     BOOL,               //布尔值
 
     //自定义错误
-    ERROR
+    ERROR,
+    //文件末尾
+    EEOF
 };
 
 struct Token {
@@ -107,11 +109,11 @@ private:
     std::vector<Token> tokens;
     //当前行
     int curLineNo = 0;
+    std::string str;
+    int pos = 0;
 
     //读取一个字符，并设置curLineNo，如果读到EOF，返回std::nullopt
     std::optional<char> readChar() {
-        static std::string str;
-        static int pos = 0;
         if (pos >= str.size()) {
             ++curLineNo;
             pos = 0;

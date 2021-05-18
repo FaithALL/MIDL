@@ -1,5 +1,5 @@
 /**
- * MIDL的语法分析程序
+ * MIDL的词法分析程序
  * using c++17
  * compile with g++ 9.3.0
  */

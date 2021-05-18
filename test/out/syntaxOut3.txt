@@ -1,0 +1,45 @@
+{
+    "left": {
+        "value": "ID: test"
+    },
+    "right": {
+        "left": {
+            "value": "TYPE_SPEC: float"
+        },
+        "next": {
+            "left": {
+                "next": {
+                    "value": "DEFAULT: double"
+                },
+                "value": "TYPE_SPEC: long"
+            },
+            "next": {
+                "left": {
+                    "value": "TYPE_SPEC: double"
+                },
+                "right": {
+                    "left": {
+                        "value": "ID: a3"
+                    },
+                    "value": "DECLARATOR: "
+                },
+                "value": "MEMBER: "
+            },
+            "right": {
+                "left": {
+                    "value": "ID: a2"
+                },
+                "value": "DECLARATOR: "
+            },
+            "value": "MEMBER: "
+        },
+        "right": {
+            "left": {
+                "value": "ID: a1"
+            },
+            "value": "DECLARATOR: "
+        },
+        "value": "MEMBER: "
+    },
+    "value": "STRUCT: "
+}
