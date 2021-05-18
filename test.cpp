@@ -1,4 +1,4 @@
-#include "LexicalAnalysis.hpp"
+#include "src/LexicalAnalysis.hpp"
 #include <iostream>
 #include <unordered_map>
 #include <iomanip>

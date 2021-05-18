@@ -1,5 +1,5 @@
-#include "LexicalAnalysis.hpp"
-#include "GrammarAnalysis.hpp"
+#include "src/LexicalAnalysis.hpp"
+#include "src/GrammarAnalysis.hpp"
 #include <fstream>
 #include <iostream>
 
