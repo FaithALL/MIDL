@@ -1,10 +1,10 @@
 # MIDL
 
-> Mini Interface Description language。
+> Mini Interface Description Language。
 >
 > 实现MIDL的词法分析和语法分析。
 >
-> 引用的第三方库[json.hpp](https://github.com/nlohmann/json)
+> 使用c++17标准，引用的第三方库[json.hpp](https://github.com/nlohmann/json)
 
 ## 词法分析
 
