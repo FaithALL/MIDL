@@ -2,7 +2,9 @@
 
 > Mini Interface Description language。
 >
-> 实现MIDL的编译器前端。
+> 实现MIDL的词法分析和语法分析。
+>
+> 引用的第三方库[json.hpp](https://github.com/nlohmann/json)
 
 ## 词法分析
 
@@ -41,3 +43,50 @@
   
   * 写程序时，考虑到方便处理并没有将Integer的识别分为InINT1和InINT2两个状态，而是统一按InINT1的状态处理，如果检测到Token的值以0开头且不为0、0l、0L时，当出错处理。
   
+
+## 语法分析
+
+![](res/Rules.png)
+
+* 抽象语法树设计
+
+  * struct_type
+
+  <img src="res/struct_type.png" style="zoom:60%;" />
+
+  * member_list
+
+  <img src="res/member_list.png" style="zoom:60%;" />
+
+  * type_spec、base_type_spec、floating_pt_type、integer_type、signed_int、unsigned_int
+
+    成员类型都为终结符，可统一处理，均视为type_spec，对于由多个部分(至多三个)组成的类型，多出的部分放到右兄弟结点
+
+  <img src="res/type.png" style="zoom:60%;" />
+
+  * declarators
+
+  <img src="res/declarators.png" style="zoom:60%;" />
+
+  * declarator
+
+  <img src="res/declarator.png" style="zoom:60%;" />
+
+  * exp_list
+
+  <img src="res/exp_list.png" style="zoom:60%;" />
+
+  * or_expr、xor_expr、and_expr、shift_expr、add_expr、mult_expr
+
+  <img src="res/expr.png" style="zoom:60%;" />
+
+  ​		对于以上几个表达式采用以上语法树描述，按照从左到右的结合性，越靠左越处于语法树的底层。
+
+  * unary_expr
+
+  <img src="res/unary_expr.png" style="zoom:60%;" />
+
+  ​		左孩子是可选的三个运算符，右孩子是STRING、INTEGER、BOOLEAN三种类型的数据。
+
+* 抽象语法树的输出：采用json格式输出，left代表左子树，right代表右子树，next代表右兄弟结点
+
