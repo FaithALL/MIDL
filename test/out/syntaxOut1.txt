@@ -1,0 +1,6 @@
+{
+    "left": {
+        "value": "ID: test"
+    },
+    "value": "STRUCT: "
+}

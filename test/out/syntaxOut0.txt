@@ -1,0 +1,18 @@
+{
+    "left": {
+        "value": "ID: test"
+    },
+    "right": {
+        "left": {
+            "value": "TYPE_SPEC: float"
+        },
+        "right": {
+            "left": {
+                "value": "ID: a1"
+            },
+            "value": "DECLARATOR: "
+        },
+        "value": "MEMBER: "
+    },
+    "value": "STRUCT: "
+}
